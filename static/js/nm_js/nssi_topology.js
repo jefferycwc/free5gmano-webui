@@ -126,11 +126,11 @@ async function reload_nssi_topology(nodes) {
 }
 
 
-function delete_vnf(nodes, nssiID, NM_URL) {
+function delete_vnf(nssiID, NM_URL) {
 	const url = NM_URL+'ObjectManagement/NSS/SliceProfiles/';
 	axios.delete(url+nssiID+'/')
     .then((response) => {
-      	for (let i = nodes.length - 1; i >= 1; i--) {
+      	/*for (let i = nodes.length - 1; i >= 1; i--) {
 		    setTimeout(function (){
 		    	nodes.pop();
 		    	reload_nssi_topology(nodes);
@@ -139,7 +139,7 @@ function delete_vnf(nodes, nssiID, NM_URL) {
 		    		window.location.href = '/NSS_Instance/';
 		    	}
 		    }, i*1000);
-		}
+		}*/
     })
     .catch((error) => {
       	console.log(error);
